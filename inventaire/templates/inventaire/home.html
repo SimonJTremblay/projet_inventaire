@@ -1,0 +1,14 @@
+{% extends "inventaire/base.html" %}
+{% block content %}
+    {% for produit in produits %}
+    <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="#">{{ produit.Nom }}</a>
+            <small class="text-muted">{{ produit.Description }}</small>
+          </div>
+          <h2><a class="article-title" href="#">{{ produit.QuantiteStock }}</a></h2>
+        </div>
+      </article>
+    {%  endfor %}
+{% endblock content %}
