@@ -1,0 +1,21 @@
+{% extends "inventaire/base.html" %}
+{% block content %}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+            <a class="mr-2" href="#">{{ object.Nom }}</a>
+            <small class="text-muted">{{ object.Description }}</small>
+            </div>
+            <div>
+                <h2 class="article-title">Stock: {{ object.QuantiteStock }}</h2>
+                <h4 class="article-title">Seuil: {{ object.SeuilMinimum }}</h4>
+            </div>
+            <div>
+                {% if perms.inventaire.add_produit  and perms.inventaire.change_produit %}
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'produit-update' object.id %}">Mettre a Jour</a>
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'produit-delete' object.id %}">Effacer</a>                
+                {% endif %}
+            </div>
+        </div>
+    </article>
+{% endblock content %}

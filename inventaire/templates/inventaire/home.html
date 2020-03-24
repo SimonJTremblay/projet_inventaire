@@ -4,10 +4,10 @@
     <article class="media content-section">
         <div class="media-body">
           <div class="article-metadata">
-            <a class="mr-2" href="#">{{ produit.Nom }}</a>
+            <a class="mr-2" href="{% url 'produit-detail' produit.id %}">{{ produit.Nom }}</a>
             <small class="text-muted">{{ produit.Description }}</small>
           </div>
-          <h2><a class="article-title" href="#">{{ produit.QuantiteStock }}</a></h2>
+          <h2><a class="article-title" href="#">En stock: {{ produit.QuantiteStock }}</a></h2>
         </div>
       </article>
     {%  endfor %}

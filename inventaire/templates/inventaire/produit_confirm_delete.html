@@ -1,0 +1,16 @@
+{% extends "inventaire/base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Effacer un produit</legend>
+                <h2>Etes-vous certain de vouloir effacer ce produit: {{ object.Nom }}?</h2>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type="submit">Oui, certain!</button>
+                <a class="btn btn-outline-secondary" href="{% url 'produit-detail' object.id %}">Non</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
