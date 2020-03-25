@@ -11,7 +11,7 @@
                 <h4 class="article-title">Seuil: {{ object.SeuilMinimum }}</h4>
             </div>
             <div>
-                {% if perms.inventaire.add_produit  and perms.inventaire.change_produit %}
+                {% if perms.inventaire.add_produit and perms.inventaire.change_produit %}
                     <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'produit-update' object.id %}">Mettre a Jour</a>
                     <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'produit-delete' object.id %}">Effacer</a>                
                 {% endif %}

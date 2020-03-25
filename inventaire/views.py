@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.views.generic import (
     ListView,
     DetailView,
@@ -8,6 +8,7 @@ from django.views.generic import (
     DeleteView,
 )
 from .models import Produit
+from django.db.models import F
 
 
 def home(request):
@@ -41,6 +42,14 @@ class ProduitUpdateView(LoginRequiredMixin, UpdateView):
 class ProduitDeleteView(LoginRequiredMixin, DeleteView):
     model = Produit
     success_url = '/'
+
+class AchatProduitListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
+    queryset = Produit.objects.filter(QuantiteStock__lte=F('SeuilMinimum'))
+    context_object_name = 'produits'
+    ordering = ['-QuantiteStock']
+    permission_required = 'is_superuser'
+    template_name = 'inventaire/produit-achat.html'
+
 
 def about(request):
     return render(request, 'inventaire/about.html', {'title': 'About'})

@@ -5,11 +5,13 @@ from .views import (
     ProduitCreateView,
     ProduitUpdateView,
     ProduitDeleteView,
+    AchatProduitListView,
 )
 from . import views
 
 urlpatterns = [
     path('', ProduitListView.as_view(), name='inventaire-home'),
+    path('produit/achat/', AchatProduitListView.as_view(), name='produit-achat'),
     path('produit/<int:pk>/', ProduitDetailView.as_view(), name='produit-detail'),
     path('produit/new/', ProduitCreateView.as_view(), name='produit-create'),
     path('produit/<int:pk>/update/', ProduitUpdateView.as_view(), name='produit-update'),
