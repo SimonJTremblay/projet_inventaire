@@ -7,7 +7,7 @@
             <a class="mr-2" href="{% url 'produit-detail' produit.id %}">{{ produit.Nom }}</a>
             <small class="text-muted">{{ produit.Description }}</small>
           </div>
-          <h2><a class="article-title" href="#">En stock: {{ produit.QuantiteStock }}</a></h2>
+          <h4>En stock: {{ produit.QuantiteStock }}</h4>
         </div>
       </article>
     {%  endfor %}

@@ -6,8 +6,8 @@
           <div class="article-metadata">
             <a class="mr-2" href="{% url 'produit-detail' produit.id %}">{{ produit.Nom }}</a>
           </div>
-          <h2><a class="article-title" href="#">En stock: {{ produit.QuantiteStock }}</a></h2>
-          <h2><a class="article-title" href="#">Seuil: {{ produit.SeuilMinimum }}</a></h2>
+          <h5>En stock: {{ produit.QuantiteStock }}</a></h2>
+          <h5>Seuil: {{ produit.SeuilMinimum }}</a></h5>
         </div>
       </article>
     {%  endfor %}
